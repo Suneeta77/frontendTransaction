@@ -50,8 +50,7 @@ export const postTrans = async (transObj) => {
         message: "userId not foud, log out and log in again.",
       };
     }
-    const { data } = await axios.post(transApi, {
-      transObj,
+    const { data } = await axios.post(transApi, transObj, {
       headers: {
         Authorization: userId,
       },
@@ -101,7 +100,6 @@ export const deleteTrans = async (idArg) => {
     }
     const { data } = await axios.delete(transApi, {
       data: idArg,
-
       headers: {
         Authorization: userId,
       },
